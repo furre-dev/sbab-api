@@ -10,4 +10,4 @@ export const MortgageRateResponesType = z.object({
 
 export type IMortgageResponseType = z.infer<typeof MortgageRateResponesType>;
 
-export type IBankType = IMortgageResponseType & { bank_name: string }
+export type IBankType = IMortgageResponseType & { bank_name: string, image_url: string }

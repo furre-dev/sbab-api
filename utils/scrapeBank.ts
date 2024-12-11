@@ -9,6 +9,7 @@ export type BankWithTableIndexType = {
   table_index: number,
   url: string,
   information_outside_table: boolean;
+  img_url: string;
 }
 
 export async function scrapeBank(bank: BankWithTableIndexType): Promise<IBankType | null> {
@@ -25,7 +26,7 @@ export async function scrapeBank(bank: BankWithTableIndexType): Promise<IBankTyp
 
   if (table.length > 0) {
     const data = await generateBankRateData(table_content);
-    return { bank_name: bank.bank_name, rates: data.rates }
+    return { bank_name: bank.bank_name, rates: data.rates, image_url: bank.img_url };
   } else {
     return null;
   }
